@@ -33,5 +33,5 @@ jobs:
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: abayazeed-link-manager
+          name: abayazeedlinkmanager
           path: build/app/outputs/flutter-apk/app-release.apk
