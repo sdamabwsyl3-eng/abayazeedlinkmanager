@@ -18,6 +18,4 @@ dependencies:
   pdf: ^3.10.8
   printing: ^5.12.0
   qr_flutter: ^4.1.0
-
-flutter:
-  uses-material-design: true
+  shared_preferences: ^2.2.3
