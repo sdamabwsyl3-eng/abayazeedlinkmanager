@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
       title: 'أبا يزيد لنك منجر',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFF0F2B48), // أزرق داكن
+          seedColor: const Color(0xFF0F2B48),
           primary: const Color(0xFF0F2B48),
           onPrimary: Colors.white,
           secondary: const Color(0xFF1E88E5),
