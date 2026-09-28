@@ -24,13 +24,10 @@ jobs:
           flutter-version: '3.19.0'
           channel: 'stable'
 
-      # ✅ هذا الأمر ينشئ ملفات أندرويد تلقائياً لو ناقصة
-      - name: Generate Android files if missing
+      # ✅ ينشئ ملفات أندرويد كاملة لو ناقصة أو قديمة
+      - name: Create/Repair Android project files
         run: |
-          if [ ! -d "android" ]; then
-            echo "Android folder missing — creating..."
-            flutter create --platforms android .
-          fi
+          flutter create --platforms android --org com.example .
 
       - name: Install dependencies
         run: flutter pub get
