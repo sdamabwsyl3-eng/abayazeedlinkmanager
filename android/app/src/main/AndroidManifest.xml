@@ -1,9 +1,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
     <application
-        android:label="abayazeedlinkmanager"
         android:name="${applicationName}"
+        android:label="abayazeedlinkmanager"
         android:icon="@mipmap/ic_launcher">
 
+        <!-- Flutter Android Embedding v2 -->
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
@@ -17,10 +19,21 @@
             android:hardwareAccelerated="true"
             android:windowSoftInputMode="adjustResize">
 
-            <intent-filter android:autoVerify="true">
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+            <meta-data
+                android:name="io.flutter.embedding.android.NormalTheme"
+                android:resource="@style/NormalTheme" />
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
+
+        <meta-data
+            android:name="io.flutter.embedding.android.SplashScreenDrawable"
+            android:resource="@drawable/launch_background" />
+
     </application>
+
 </manifest>
