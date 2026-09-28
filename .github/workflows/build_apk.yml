@@ -1,1 +1,37 @@
-yaml name: BuildAPK on: push: branches: [main] workflow_dispatch: permissions: contents: write jobs: build: runs-on: ubuntu-latest steps: - uses: actions/checkout@v4 - uses: actions/setup-java@v4 with: distribution: temurin java-version: 17 - uses: subosito/flutter-action@v2 with: flutter-version: 3.19.0 - name: Build run: | flutter create --org com.abayazeed --project-name abayazeedlinkmanager app_temp if [ -f lib/main.dart ]; then cp lib/main.dart app_temp/lib/main.dart fi cd app_temp flutter pub get flutter build apk --release - uses: actions/upload-artifact@v4 with: name: abayazeed-apk path: app_temp/build/app/outputs/flutter-apk/app-release.apk
+name: BuildAPK
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: "3.19.0"
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Build APK
+        run: flutter build apk --release
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: abayazeed-apk
+          path: build/app/outputs/flutter-apk/app-release.apk
